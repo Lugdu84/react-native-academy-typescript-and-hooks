@@ -1,100 +1,80 @@
-import {
-	NativeSyntheticEvent,
-	StyleSheet,
-	Text,
-	TextInput,
-	TextInputChangeEventData,
-	TextInputFocusEventData,
-	TextInputSubmitEditingEventData,
-} from 'react-native';
+import { LayoutChangeEvent, StyleSheet, Text, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Stack } from 'expo-router';
-import RowUser from '@/components/RowUser';
+
+import RowPosition from '@/components/RowPosition';
 
 export default function TypeScriptScreen() {
-	// 1. Typer ces variables
-	let num: number;
-	num = 323;
-	let str: string;
-	str = 'Hello world';
-	let numStr: string;
-	numStr = '323';
-	let bool: boolean;
-	bool = true;
-	let arr: string[];
-	arr = ['1', '2', '3'];
+	// 1. les types disponibles et qu'est-ce que any
 
-	// 2. Typer avec des Union type
-	let union: string | number;
+	// string
+	let str: string = 'string';
+
+	// number
+	let numm: number = 1;
+
+	// boolean
+	let bool: boolean = true;
+
+	// array
+	let arr: number[] = [1, 2, 3];
+
+	// object
+	let objectt: { id: string; longitude: number; latitude: number } = {
+		id: '1',
+		longitude: 30,
+		latitude: 32,
+	};
+
+	// 2. union types
+	let union: string | number = 'string';
 	union = 4;
-	union = '4';
-	let unionOptional: string | number | undefined;
-	unionOptional = 4;
-	unionOptional = '4';
+	union = 'string';
+
+	const funct = (param?: string | number) => {};
+
+	let unionOptional: string | number | undefined = 'string';
 	unionOptional = undefined;
 
 	// 2. Utilise l'inférence de type
-	let number = 1;
-	let string = 'string';
-	let boolean = true;
-	let arrayOfNumber = [1, 2, 3];
+	const number = 1;
+	const string = 'string';
+	const boolean = true;
+	let boolean2 = false;
+	const arrayOfNumber = [1, 2, 3];
 
-	// 3. Crée un type pour les User avec les propriétés name, id et age, de type string, string et number
-	type User = {
-		id: string;
-		name: string;
-		age: number;
-	};
+	// 3. Créer un type
 
-	// 4. Type le tableau en utilisant un tableau de type User
-	const users: User[] = [
-		{ id: '1', name: 'toto', age: 10 },
-		{ id: '2', name: 'titi', age: 20 },
-		{ id: '3', name: 'tata', age: 30 },
+	// 4. Type le tableau en utilisant un tableau de type Position
+	const positions: Position[] = [
+		{ id: '1', longitude: 30, latitude: 20 },
+		{ id: '2', longitude: 24, latitude: 12 },
+		{ id: '3', longitude: 17, latitude: 31 },
 	];
 
 	// 5. Crée un type pour le handleFocus
-	const handleFocus = (
-		event: NativeSyntheticEvent<TextInputFocusEventData>
-	) => {
-		console.log(event);
+	const handleLayout = (event: LayoutChangeEvent) => {
+		console.log(event.nativeEvent.layout);
 	};
 
-	// 6. Crée un type pour le handleChange
-	const handleChange = (
-		event: NativeSyntheticEvent<TextInputChangeEventData>
-	) => {
-		console.log(event);
-	};
+	// 6. Typage du composant RowPosition
 
-	// 7. Crée un type pour le handleSubmit
-	const handleSubmit = (
-		event: NativeSyntheticEvent<TextInputSubmitEditingEventData>
-	) => {
-		console.log(event.nativeEvent.text);
-	};
-
-	// 8. Va dans le composant RowUser et type les props
-	// Pense à créer un fichier user.d.ts pour pouvoir l'utiliser dans ton composant
-
-	// 9. Utilise un user (il faudra également changer les props de RowUser), plutôt que {...user}
+	// 7. un fichier position.d.ts et utilisation dans le composant RowPosition
 
 	return (
 		<SafeAreaView style={styles.container}>
 			<Stack.Screen options={{ title: 'TypeScript' }} />
-			<Text style={styles.title}>Liste des users</Text>
-			{users.map((user) => (
-				<RowUser
-					key={user.id}
-					user={user}
+			<Text style={styles.title}>Liste des positions</Text>
+			{positions.map((position) => (
+				<RowPosition
+					key={position.id}
+					position={position}
 				/>
 			))}
 			<TextInput
-				onFocus={handleFocus}
-				onChange={handleChange}
+				onLayout={handleLayout}
 				style={styles.input}
 				placeholder="Entrez un texte"
-				onSubmitEditing={handleSubmit}
 			/>
 		</SafeAreaView>
 	);
