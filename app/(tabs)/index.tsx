@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 import { View } from '@/components/Themed';
-import { Link } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 
 export default function TabOneScreen() {
 	return (
 		<View style={styles.container}>
+			<Stack.Screen options={{ title: 'Les fondamentaux' }} />
 			<Link
 				style={styles.link}
 				href={'/hooks/typescript'}>
@@ -25,6 +26,16 @@ export default function TabOneScreen() {
 				style={styles.link}
 				href={'/hooks/use-state-tp'}>
 				Corrigé TP useState
+			</Link>
+			<Link
+				style={styles.link}
+				href={'/hooks/use-effect'}>
+				Cours useEffect
+			</Link>
+			<Link
+				style={styles.link}
+				href={'/hooks/use-effect-tp'}>
+				Corrigé TP useEffect
 			</Link>
 		</View>
 	);
