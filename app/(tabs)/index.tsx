@@ -37,6 +37,21 @@ export default function TabOneScreen() {
 				href={'/hooks/use-effect-tp'}>
 				Corrigé TP useEffect
 			</Link>
+			<Link
+				style={styles.link}
+				href={'/hooks/use-ref'}>
+				Cours useRef
+			</Link>
+			<Link
+				style={styles.link}
+				href={'/hooks/use-ref-tp'}>
+				Corrigé TP useRef
+			</Link>
+			<Link
+				style={styles.link}
+				href={'/hooks/app-state'}>
+				AppState youtube
+			</Link>
 		</View>
 	);
 }
