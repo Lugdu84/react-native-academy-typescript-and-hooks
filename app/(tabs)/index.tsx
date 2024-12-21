@@ -49,6 +49,11 @@ export default function TabOneScreen() {
 			</Link>
 			<Link
 				style={styles.link}
+				href={'/hooks/use-reducer'}>
+				Cours useReducer
+			</Link>
+			<Link
+				style={styles.link}
 				href={'/hooks/app-state'}>
 				AppState youtube
 			</Link>
