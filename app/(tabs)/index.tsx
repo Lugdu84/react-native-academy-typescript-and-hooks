@@ -54,6 +54,16 @@ export default function TabOneScreen() {
 			</Link>
 			<Link
 				style={styles.link}
+				href={'/hooks/custom-hook'}>
+				Cours Custom Hoook
+			</Link>
+			<Link
+				style={styles.link}
+				href={'/hooks/use-context'}>
+				Cours useContext
+			</Link>
+			<Link
+				style={styles.link}
 				href={'/hooks/app-state'}>
 				AppState youtube
 			</Link>
