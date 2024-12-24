@@ -1,7 +1,6 @@
 import { Button, StyleSheet, Text } from 'react-native';
-import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useUser } from '@/components/useUser';
+import { useUser } from '@/hooks/useUser';
 
 export default function CustomHookScreen() {
 	const { user, signIn, signOut } = useUser();
