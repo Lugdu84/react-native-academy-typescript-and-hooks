@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
 import Profil from './Profil';
 
 type DashboardProps = {
@@ -8,10 +8,14 @@ type DashboardProps = {
 
 export default function Dashboard({ user }: DashboardProps) {
 	return (
-		<View>
+		<View style={styles.container}>
 			<Profil user={user} />
 		</View>
 	);
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+	},
+});
