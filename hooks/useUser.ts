@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useUser = () => {
+export const useUser = (): Auth => {
 	const [user, setUser] = useState<User | null>(null);
 
 	const connectToApi = async () => {};

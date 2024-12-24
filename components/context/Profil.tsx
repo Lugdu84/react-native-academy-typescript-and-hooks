@@ -1,15 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useAuth } from '@/hooks/Auth';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-type ProfilProps = {
-	user: User;
-};
-
-export default function Profil({ user }: ProfilProps) {
+export default function Profil() {
+	const { user, signOut } = useAuth();
 	return (
 		<View style={styles.card}>
 			<View>
 				<Text>Name : {user?.name}</Text>
 				<Text>Age : {user?.age} ans</Text>
+				<Button
+					title="Sign out"
+					onPress={signOut}
+				/>
 			</View>
 		</View>
 	);

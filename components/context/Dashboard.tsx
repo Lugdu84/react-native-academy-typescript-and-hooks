@@ -2,14 +2,10 @@ import { StyleSheet, View } from 'react-native';
 
 import Profil from './Profil';
 
-type DashboardProps = {
-	user: User;
-};
-
-export default function Dashboard({ user }: DashboardProps) {
+export default function Dashboard() {
 	return (
 		<View style={styles.container}>
-			<Profil user={user} />
+			<Profil />
 		</View>
 	);
 }
